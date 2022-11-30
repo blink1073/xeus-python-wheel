@@ -15,4 +15,4 @@ test-command = "pytest test -vv"
 archs = "auto aarch64 ppc64le s390x"
 
 [tool.cibuildwheel.macos]
-arches = "x86_64 arm64"
+archs = "x86_64 arm64"
