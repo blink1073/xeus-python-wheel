@@ -9,7 +9,7 @@ requires = [
 
 
 [tool.cibuildwheel]
-test-command = "pytest test -vv"
+test-command = "pip install pytest && pytest test -vv"
 
 [tool.cibuildwheel.linux]
 archs = "auto aarch64 ppc64le s390x"
