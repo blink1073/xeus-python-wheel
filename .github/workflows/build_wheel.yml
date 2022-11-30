@@ -38,6 +38,7 @@ jobs:
         env:
           CIBW_SKIP: "cp36-* *-win32"
           CIBW_BUILD_VERBOSITY: 1
+          CIBW_BUILD_FRONTEND: build
 
       - uses: actions/upload-artifact@v3
         with:

@@ -13,7 +13,7 @@ test-command = "pip install pytest nbval && pytest -vv {package}/test"
 
 
 [tool.cibuildwheel.windows]
-before-build = "call '/c/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat'"
+before-build = "call \"/c/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat\""
 
 [tool.cibuildwheel.linux]
 archs = "auto aarch64 ppc64le s390x"
