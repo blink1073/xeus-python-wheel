@@ -33,10 +33,16 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/setup-nasm@v1
 
+      - name: Set up SDK
+        if: runner.os == 'macOS'
+        run: |
+          echo "CXX=clang++" >> $GITHUB_ENV
+          echo "CC=clang" >> $GITHUB_ENV
+
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.11.2
         env:
-          CIBW_SKIP: "cp36-* win32"
+          CIBW_SKIP: "cp36-* *-win32"
 
       - uses: actions/upload-artifact@v3
         with:
