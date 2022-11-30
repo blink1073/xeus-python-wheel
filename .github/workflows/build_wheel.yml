@@ -37,6 +37,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.11.2
         env:
           CIBW_SKIP: "cp36-* *-win32"
+          CIBW_BUILD_VERBOSITY: 1
 
       - uses: actions/upload-artifact@v3
         with:
