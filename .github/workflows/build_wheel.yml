@@ -37,7 +37,7 @@ jobs:
     - name: Setup xcode
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '12'
+        xcode-version: '13.1.0'
 
     - name: Build wheel
       run: |
@@ -62,7 +62,7 @@ jobs:
         PYTHON_VERSION: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     container:
-        image: "quay.io/pypa/manylinux2010_x86_64"
+        image: "quay.io/pypa/manylinux2_17_x86_64"
 
     steps:
     # We need checkout v1, as checkout v2 does not work for the manylinux2010 image
