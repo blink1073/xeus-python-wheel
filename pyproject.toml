@@ -6,9 +6,3 @@ requires = [
   "cmake",
   "ninja"
 ]
-
-[tool.cibuildwheel]
-test-command = "pip install pytest nbval && pytest -vv {package}/test"
-
-[tool.cibuildwheel.linux]
-archs = "auto aarch64"

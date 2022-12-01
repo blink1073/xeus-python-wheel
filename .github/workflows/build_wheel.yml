@@ -12,12 +12,12 @@ on:
         - '*'
 
 jobs:
-  build_wheels:
+  build_linux_wheels:
     name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        os: [ubuntu-20.04]
+        version: ["37", "38", "39", "310", "311"]
       fail-fast: false
 
     steps:
@@ -31,9 +31,10 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.11.2
         env:
-          CIBW_SKIP: "cp36-*"
+          CIBW_BUILD: "cp-${{ matrix.version }}-manylinux_x86_64 cp-${{ matrix.version }}-manylinux_aarch64"
           CIBW_BUILD_VERBOSITY: 1
           CIBW_BUILD_FRONTEND: build
+          CIBW_TEST_COMMAND: "pip install pytest nbval && pytest -vv {package}/test"
 
       - uses: actions/upload-artifact@v3
         with:
